@@ -11,7 +11,7 @@ import utils
 # Page configuration
 
 st.set_page_config(page_title='Delivery Person View', 
-        page_icon=🚚, layout="wide", 
+        page_icon='🚚', layout="wide", 
         initial_sidebar_state="auto", menu_items=None)
 
 # Data uploading
