@@ -35,7 +35,7 @@ st.markdown("""
         Growth Dashboard was maked to keep tracking the restaurants and delivery person metrics and growth.
 
         ### How to use this Dashboard?
-        *####- Company view:*
+        -#### *Company view:*
             *#####- Managerial view: Behavior general metrics.*
             - Strategic view: Weekly growth indicators. 
             - Geographical view: Geolocation insights.
