@@ -5,7 +5,7 @@ import utils
 # Page configuration
 
 st.set_page_config(page_title='Home', 
-        page_icon=None, 
+        page_icon="🏠", 
         initial_sidebar_state="auto", menu_items=None)
 
 # Data uploading

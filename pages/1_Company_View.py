@@ -32,7 +32,7 @@ df2 = utils.clean_code(df2)
 
 df2 = utils.create_sidebar(df2)
 
-st.header('Marketplace - Customer View') 
+st.header('Marketplace - Company View') 
 
 #============================================================================================
 #                STREAMLIT LAYOUT  

@@ -113,7 +113,7 @@ Cada visão é representada pelo seguinte conjunto de métricas:
 
 Painel online, hospedado em uma Cloud e disponível em qualquer dispositivo conectado a internet.
 
-O painel pode ser acessado através deste link: [https://j-paulo-barboza-curry-company-project.streamlit.app/](https://j-paulo-barboza-curry-company-project.streamlit.app/)
+O painel pode ser acessado através deste link: [Curry Company Project](https://j-paulo-barboza-curry-company-project.streamlit.app/)
 
 # 6. Conclusão
 
