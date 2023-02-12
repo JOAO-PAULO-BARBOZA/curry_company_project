@@ -37,12 +37,12 @@ st.markdown("""
         ### How to use this Dashboard?
        - #### *Company view:*
             *#####- Managerial view: Behavior general metrics.*
-            - Strategic view: Weekly growth indicators. 
-            - Geographical view: Geolocation insights.
-        - Delivery person view: 
-            - monitoring of weekly growth indicators.
-        - Restaurants view:
-            - weekly restaurant growth indicators.
+            - ##### *Strategic view: Weekly growth indicators.* 
+            - ##### *Geographical view: Geolocation insights.*
+        - #### *Delivery person view:* 
+            - ##### *monitoring of weekly growth indicators.*
+        - #### *Restaurants view:*
+            - ##### *weekly restaurant growth indicators.*
         ### Ask for help:
          https://www.linkedin.com/in/joao-paulo-barboza/
         """)
