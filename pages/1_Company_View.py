@@ -126,8 +126,11 @@ with tactical_view:
         st.markdown('''___''')
 
 with geographical_view:    
-    st.container():
-    col01, col02 = st.columns(2)    
+    
+    with st.container():
+        
+        col01, col02 = st.columns(2)    
+        
         with col01:
         
             # The central location of each city by type of traffic
