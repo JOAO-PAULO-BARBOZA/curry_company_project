@@ -133,6 +133,7 @@ with geographical_view:
         st.markdown('## The central location of each city by type of traffic')
         
         st.dataframe(df_aux)    
+        st.markdown('''___''')
 
 
     with st.container():
