@@ -36,7 +36,7 @@ df2 = utils.create_sidebar(df2)
 #                STREAMLIT LAYOUT  
 #===========================================================================================
 
-st.header('Marketplace - Customer View') 
+st.header('Marketplace - Delivery Person View') 
 
 # Creating the tables
 

@@ -48,7 +48,7 @@ managerial_view, tactical_view, geographical_view = st.tabs(['Managerial View', 
 with managerial_view:
     
     with st.container():        
-    
+    st.markdown('## Order Quantity per day')
         #Line selection     
         df_aux = df2.loc[:, ['ID', 'Order_Date']].groupby('Order_Date').count().reset_index()
     
@@ -56,11 +56,14 @@ with managerial_view:
         fig = px.bar(df_aux, x='Order_Date', y='ID')
 
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown('''___''')
+    
     with st.container():
         col01, col02 = st.columns(2)
 
         with col01:
-    
+        
+            st.markdown('## Order distribution by type of traffic')    
             # Order distribution by type of traffic
             df_aux = df2[['ID', 'Road_traffic_density']].groupby('Road_traffic_density').count().reset_index()
             df_aux['percentage'] = df_aux['ID']/df_aux['ID'].sum()
@@ -69,6 +72,8 @@ with managerial_view:
             st.plotly_chart(fig, use_container_width=True)
 
         with col02:
+           
+            st.markdown('## Order volume Comparison per city and type of traffic')    
             
             # Order's volume Comparison by city and type of traffic
             df_aux = (df2[['ID', 'City', 'Road_traffic_density']]
@@ -79,11 +84,15 @@ with managerial_view:
             #drawing the graphic
             fig = px.scatter(df_aux, x='City', y='Road_traffic_density', size='ID', color='City')
             st.plotly_chart(fig, use_container_width=True)            
+        
+        st.markdown('''___''')
 
 with tactical_view:
      
     with st.container():
 
+        st.markdown('## Order quantity per Week')    
+        
         # Order quantity per Week.
         df2['week_of_year'] = df2['Order_Date'].dt.strftime('%U') #('%U') The counting of the days start from sunday
         df_aux = df2[['ID', 'week_of_year']].groupby('week_of_year').count().reset_index()
@@ -92,8 +101,11 @@ with tactical_view:
         #drawing the graphic
         fig = px.line(df_aux, x='week_of_year', y='ID')
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown('''___''')
     
     with st.container():
+        
+        st.markdown('## Order quantity per delivery person and per week')    
         
         # Grouping the quantity of orders by week of year
         df_aux01 = df2[['ID', 'week_of_year']].groupby('week_of_year').count().reset_index()
@@ -110,24 +122,32 @@ with tactical_view:
         #drawing the graphic
         fig = px.line(df_aux, x='week_of_year', y='qd_bydp_week')
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown('''___''')
 
 with geographical_view:    
-    
-    # The central location of each city by type of traffic
-    df_aux = (df2[['City', 'Road_traffic_density', 'Delivery_location_latitude', 'Delivery_location_longitude']]
-            .groupby(['City', 'Road_traffic_density'])
-            .median()
-            .reset_index())
+    st.container():
+    col01, col02 = st.columns(2)    
+        with col01:
+        
+            # The central location of each city by type of traffic
+            df_aux = (df2[['City', 'Road_traffic_density', 'Delivery_location_latitude', 'Delivery_location_longitude']]
+                    .groupby(['City', 'Road_traffic_density'])
+                    .median()
+                    .reset_index())
 
-    #drawing the graphic
-    _map = fl.Map()
+            #drawing the graphic
+            _map = fl.Map()
 
-    for index, location in df_aux.iterrows():
-        fl.Marker([location['Delivery_location_latitude'], 
-                location['Delivery_location_longitude']]).add_to(_map)
-    folium_static(_map, width=1024, height=600)
-
-
+            for index, location in df_aux.iterrows():
+                fl.Marker([location['Delivery_location_latitude'], 
+                        location['Delivery_location_longitude']]).add_to(_map)
+            folium_static(_map, width=1024, height=600)
+       
+        with col02:
+        
+            st.markdown('## The central location of each city by type of traffic')
+            
+            st.dataframe(df_aux)    
 
 
 

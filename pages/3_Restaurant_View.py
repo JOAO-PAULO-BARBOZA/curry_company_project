@@ -32,7 +32,7 @@ df2 = utils.clean_code(df2)
 
 df2 = utils.create_sidebar(df2)
 
-st.header('Marketplace - Customer View') 
+st.header('Marketplace - Restaurant View') 
 
 #============================================================================================
 #                STREAMLIT LAYOUT  
@@ -47,6 +47,8 @@ with managerial_view:
     with st.container():
         
         col01, col02, col03, col04, col05, col06 = st.columns(6)
+        
+        st.markdown('### Overall Metrics')
         
         with col01 :
            
@@ -89,6 +91,8 @@ with managerial_view:
             aux = utils.metrics_calc(df2, 3, 'no', 'std')
 
             col06.metric(value=aux, label='STD Festival(no)')
+        
+        st.markdown('''___''')
 
         
     with st.container():
@@ -122,6 +126,8 @@ with managerial_view:
             df_aux = df_aux.reset_index()
 
             st.dataframe(df_aux)
+        
+        st.markdown('''___''')
 
     with st.container():
         
@@ -156,6 +162,7 @@ with managerial_view:
 
 
             st.plotly_chart(fig, use_container_width=True)
+        st.markdown('''___''')
 
 
 
