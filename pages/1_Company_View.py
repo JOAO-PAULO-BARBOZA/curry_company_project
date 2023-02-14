@@ -128,10 +128,15 @@ with tactical_view:
 with geographical_view:    
     
     
-    col01, col02 = st.columns(2)    
-    
-    with col01:
-    
+    with st.container():
+   
+        st.markdown('## The central location of each city by type of traffic')
+        
+        st.dataframe(df_aux)    
+
+
+    with st.container():
+
         # The central location of each city by type of traffic
         df_aux = (df2[['City', 'Road_traffic_density', 'Delivery_location_latitude', 'Delivery_location_longitude']]
                 .groupby(['City', 'Road_traffic_density'])
@@ -145,14 +150,6 @@ with geographical_view:
             fl.Marker([location['Delivery_location_latitude'], 
                     location['Delivery_location_longitude']]).add_to(_map)
         folium_static(_map, width=1024, height=600)
-   
-    with col02:
-    
-        st.markdown('## The central location of each city by type of traffic')
-        
-        st.dataframe(df_aux)    
-
-
 
 
 
