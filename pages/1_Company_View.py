@@ -48,7 +48,8 @@ managerial_view, tactical_view, geographical_view = st.tabs(['Managerial View', 
 with managerial_view:
     
     with st.container():        
-    st.markdown('## Order Quantity per day')
+    
+        st.markdown('## Order Quantity per day')
         #Line selection     
         df_aux = df2.loc[:, ['ID', 'Order_Date']].groupby('Order_Date').count().reset_index()
     
