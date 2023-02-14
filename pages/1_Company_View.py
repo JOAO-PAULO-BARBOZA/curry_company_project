@@ -127,31 +127,30 @@ with tactical_view:
 
 with geographical_view:    
     
-    with st.container():
-        
-        col01, col02 = st.columns(2)    
-        
-        with col01:
-        
-            # The central location of each city by type of traffic
-            df_aux = (df2[['City', 'Road_traffic_density', 'Delivery_location_latitude', 'Delivery_location_longitude']]
-                    .groupby(['City', 'Road_traffic_density'])
-                    .median()
-                    .reset_index())
+    
+    col01, col02 = st.columns(2)    
+    
+    with col01:
+    
+        # The central location of each city by type of traffic
+        df_aux = (df2[['City', 'Road_traffic_density', 'Delivery_location_latitude', 'Delivery_location_longitude']]
+                .groupby(['City', 'Road_traffic_density'])
+                .median()
+                .reset_index())
 
-            #drawing the graphic
-            _map = fl.Map()
+        #drawing the graphic
+        _map = fl.Map()
 
-            for index, location in df_aux.iterrows():
-                fl.Marker([location['Delivery_location_latitude'], 
-                        location['Delivery_location_longitude']]).add_to(_map)
-            folium_static(_map, width=1024, height=600)
-       
-        with col02:
+        for index, location in df_aux.iterrows():
+            fl.Marker([location['Delivery_location_latitude'], 
+                    location['Delivery_location_longitude']]).add_to(_map)
+        folium_static(_map, width=1024, height=600)
+   
+    with col02:
+    
+        st.markdown('## The central location of each city by type of traffic')
         
-            st.markdown('## The central location of each city by type of traffic')
-            
-            st.dataframe(df_aux)    
+        st.dataframe(df_aux)    
 
 
 
